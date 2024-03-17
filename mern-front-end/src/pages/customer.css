@@ -1,0 +1,61 @@
+
+
+.table-container {
+   
+    margin-top: 20px; 
+   
+    overflow: auto;
+    height: calc(100vh - 300px); /* Adjust height calculation */
+    cursor: pointer;
+}
+/* ... (your existing styles) */
+
+.mainDiv {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column; /* Ensure the child elements stack vertically */
+    align-items: center; /* Center the child elements horizontally */
+}
+
+.idText {
+    width: 800px;
+    padding: 5px;
+    margin: 10px 0; /* Add some vertical spacing */
+   text-align: center;
+  
+}
+
+/* Apply scaling styles directly to labels */
+
+
+
+
+
+
+
+/* .scaledTable {
+    transform: scale(0.8); 
+    transform-origin: 0 0;
+} */
+#saveBtn, #updateBtn, #deletBtn {
+    width: 80px;
+}
+
+.btnDiv {
+    width: 363px;
+    margin-top: 20px; /* Adjust spacing */
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+.h1{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--bs-heading-color);
+    text-align: center;
+
+}
