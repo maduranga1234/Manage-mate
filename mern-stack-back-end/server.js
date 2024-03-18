@@ -4,6 +4,7 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 
 const customerRouter = require('./route/customerRoute');
+const userRouter = require('./route/userRoute')
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(bodyparser.json());
 
 // Use customer routes
 app.use(customerRouter);
+app.use(userRouter);
 
 const PORT = 8080;
 

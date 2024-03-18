@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-export default function CustomerCenter() {
+export default function Customer() {
 
     const [id, setId] = useState('');
     const[name,setName]=useState('');
@@ -41,7 +41,6 @@ export default function CustomerCenter() {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
     
-        
         switch (name) {
           case 'id':
             setId(value);
