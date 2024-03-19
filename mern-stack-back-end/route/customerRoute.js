@@ -32,31 +32,54 @@ router.get('/getAll',async(req,res)=>{
     }
 })
 
-router.delete('/delete/:id',async(req,res)=>{
+// router.delete('/delete', async (req, res) => {
+//     try {
+//         const { id } = req.body;
+//
+//         if (!id) {
+//             return res.status(400).json({ error: "ID is required" });
+//         }
+//
+//         const deletedCustomer = await customer.findOneAndDelete({id});
+//
+//         if (!deletedCustomer) {
+//             return res.status(404).json({ error: "Customer not found" });
+//         }
+//
+//         return res.status(200).json({ success: "Customer deleted successfully" });
+//     } catch (error) {
+//         return res.status(500).json({ error: error.message || "Error deleting customer" });
+//     }
+// });
+
+
+router.delete('/delete',async(req,res)=>{
 
     try{
 
-        const deletId = req.params.id;
-        const deletCustomer  = await customer.findByIdAndDelete(deletId);
+        const { id } = req.body;
+        const deletCustomer  = await customer.findOneAndDelete({id});
 
         if(!deletCustomer){
             return res.status(400).json({
                 error:"customer not found"
             })
         }
-     
+
         return res.status(200).json({
             success: "Customer deleted successfully"
         })
 
 
     }catch(error){
-          
+
         return res.status(500).json({
             error: error.message || "Error deleting post"
         });
     }
 });
+
+
 
 router.put('/update', async (req, res) => {
     try {

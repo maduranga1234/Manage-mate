@@ -14,7 +14,7 @@ export default function Customer() {
     const[address,setAddress]=useState('');
     const[age,setAge]=useState('');
 
-    const[objId ,setObjId]=useState('');
+   
 
     const [customer, setCustomers] = useState([]);
       
@@ -99,15 +99,19 @@ export default function Customer() {
 
       const deletButtonClick = () => {
       
-        const newObj= objId;
         
-      
-        if (!newObj) {
-          alert("Please select a customer to delete.");
-          return;
+        const deletId ={
+          id:id
+          
+        }
+
+        console.log(deletId);
+
+        if(!id){
+               alert("please click delete detail");
         }
       
-        axios.delete(`http://localhost:8080/delete/${newObj}`)
+        axios.delete(`http://localhost:8080/delete`,{ data: deletId })
           .then((response) => {
             alert("Delete successful!");
             textFeeldNull();

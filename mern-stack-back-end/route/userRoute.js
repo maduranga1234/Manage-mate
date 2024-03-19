@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ error: "Username and password are required" });
         }
 
-        
+
         const existingUser = await user.findOne({ username });
 
         if (!existingUser) {
