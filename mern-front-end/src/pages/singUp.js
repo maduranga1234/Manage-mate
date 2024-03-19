@@ -43,50 +43,40 @@ export default function SignUp() {
       };
 
 
-      const singUpClick=()=>{
-
+      const singUpClick = () => {
         const formData = {
             firstname: firstname,
             lastname: lastname,
             address: address,
-            username:username,
-            password:password,
-            conformPassword:conformPassword,
-            
-          };
+            username: username,
+            password: password,
+            conformPassword: conformPassword,
+        };
     
-          console.log(formData);
-          
+        console.log(formData);
     
-          if (!firstname || !lastname || !address || !username || !password || !conformPassword) {
-             
-
+        if (!firstname || !lastname || !address || !username || !password || !conformPassword) {
             alert("Please fill in all fields before saving.");
-          } else if(password !== conformPassword){
-            alert("password not match");
-          }
-          
-          else {   
-        axios.post(`http://localhost:8080/user/post`,formData)
-        
-        .then((response) => {
-            
-            alert("Save successfully!");
-             navigate('/');
-            
-           
-        })
-        .catch((error) => {
-          console.error('Error saving data:', error);
-        });
-        navigate('/'); 
-    
+        } else if (password !== conformPassword) {
+            alert("Passwords do not match");
+        } else {
+            axios.post(`http://localhost:8080/user/post`, formData)
+                .then((response) => {
+                    alert("Save successful!");
+                    
+                })
+                .catch((error) => {
+                  alert("sarver error");
+                 
+                    console.error('Error saving data:', error);
+                    
+                });
+              
+        }
+
+
     }
-
-   
-
-
-      }
+    
      
 
 

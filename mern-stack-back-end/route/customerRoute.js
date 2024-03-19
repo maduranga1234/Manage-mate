@@ -58,18 +58,16 @@ router.delete('/delete/:id',async(req,res)=>{
     }
 });
 
-router.put('/update/:id', async (req, res) => {
+router.put('/update', async (req, res) => {
     try {
-        const updateId = req.params.id;
-        const updateCustomer = await customer.findByIdAndUpdate(updateId, req.body, { new: true });
-        
+        const { id, ...updateData } = req.body; // Extracting id and other update data from the request body
+        const updateCustomer = await customer.findOneAndUpdate({ id: id }, updateData, { new: true });
 
         if (!updateCustomer) {
             return res.status(404).json({
                 error: "Customer not found"
             });
         }
-
 
         return res.status(200).json({
             success: "Customer updated",
@@ -81,6 +79,7 @@ router.put('/update/:id', async (req, res) => {
         });
     }
 });
+
 
 
 module.exports = router;

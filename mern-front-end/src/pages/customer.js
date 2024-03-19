@@ -122,7 +122,7 @@ export default function Customer() {
 
       const updateButtonClick=()=>{
 
-        const newObj= objId;
+        const updateId= id;
 
       const updateData={
         id:id,
@@ -131,9 +131,9 @@ export default function Customer() {
         age:age
       }
 
-      console.log(objId);
+      console.log(updateId);
 
-      axios.put(`http://localhost:8080/update/${newObj}`,updateData)
+      axios.put(`http://localhost:8080/update`,updateData)
         .then((response)=>{
           alert("update successful!")
           getCustomers();
@@ -149,7 +149,7 @@ export default function Customer() {
         setName(setCustomer.name)
         setAddress(setCustomer.address)
         setAge(setCustomer.age)
-        setObjId(setCustomer._id)
+        
       }
       
    
